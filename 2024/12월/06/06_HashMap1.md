@@ -59,10 +59,10 @@ class Solution {
         for(int i = 0; i < name.length; i++) {
             matching.put(name[i], yearning[i]);
         }
-//         matching.put("may", 5);
-//         matching.put("kein", 10);
-//         matching.put("kain", 1);
-//         matching.put("radi", 3);
+        // matching.put("may", 5);
+        // matching.put("kein", 10);
+        // matching.put("kain", 1);
+        // matching.put("radi", 3);
 
         // 결과 배열의 크기는 photo 배열의 크기와 같음
         int[] answer = new int[photo.length];
@@ -93,3 +93,10 @@ class Solution {
 - matching 맵을 구성하는 데 O(n) 시간이 소요됩니다. (n은 name 배열의 길이)
 - photo 배열을 순회하는 데 O(m \* p) 시간이 소요됩니다. (m은 photo 배열의 길이, p는 각 사진의 크기)
 - 총 시간 복잡도는 O(n + m \* p)로, 주어진 제한 내에서는 충분히 효율적입니다.
+
+## 추가 메소드
+
+- containsKey : Map에서 인자로 보낸 키가 있으면 true 없으면 false를 반환
+- containsValue : Map에서 인자로 보낸 값이 있으면 true 없으면 false를 반환
+
+- 여기서 둘의 차이는 키와 값을 보내는 의미를 가지고있음
