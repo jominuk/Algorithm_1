@@ -55,7 +55,7 @@ class Solution {
         // 1. 사람별 그리움 점수를 매칭하는 맵을 생성
         Map<String, Integer> matching = new HashMap<>();
 
-        // name 배열의 이름과 yearning 배열의 점수를 맵에 저장
+        // 2. name 배열의 이름과 yearning 배열의 점수를 맵에 저장
         for(int i = 0; i < name.length; i++) {
             matching.put(name[i], yearning[i]);
         }
@@ -64,10 +64,10 @@ class Solution {
         // matching.put("kain", 1);
         // matching.put("radi", 3);
 
-        // 결과 배열의 크기는 photo 배열의 크기와 같음
+        // 3. 결과 배열의 크기는 photo 배열의 크기와 같음
         int[] answer = new int[photo.length];
 
-        // 2. 각 사진에 대해서 그리움 점수 합산
+        // 4. 각 사진에 대해서 그리움 점수 합산
         for (int i = 0; i < photo.length; i++) {
             int score = 0;
             // photo[i]는 각 사진에 찍힌 사람들의 이름 배열
@@ -90,9 +90,15 @@ class Solution {
 
 ## 시간 복잡도
 
+- HashMap에서의 put()의 시간 복잡도는 `O(1)` 시간 복잡도를 가진다
 - matching 맵을 구성하는 데 O(n) 시간이 소요됩니다. (n은 name 배열의 길이)
-- photo 배열을 순회하는 데 O(m \* p) 시간이 소요됩니다. (m은 photo 배열의 길이, p는 각 사진의 크기)
-- 총 시간 복잡도는 O(n + m \* p)로, 주어진 제한 내에서는 충분히 효율적입니다.
+
+- photo 배열을 순회하며 각 사진에 대한 추억 점수를 계산하는 데 걸리는 시간 : `O(m * k)`
+  - m: 사진의 수
+  - k: 각 사진에 등장한 사람의 수 (최대 100명)
+- 총 시간 복잡도는 `O(n)+O(m×k)` 로, 주어진 제한 내에서는 충분히 효율적입니다.
+
+- 결론 : `O(n + m * k)`
 
 ## 추가 메소드
 
