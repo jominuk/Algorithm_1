@@ -30,36 +30,6 @@
   5등인 "mine" 선수가 2번 추월하여 4등, 3등인 "poe", "soe" 선수가 5등, 4등이 되고 경주가 끝납니다.
   1등부터 배열에 담으면 ["mumu", "kai", "mine", "soe", "poe"]이 됩니다.
 
-```jsx
-import java.util.*;
-
-class Solution {
-    public String[] solution(String[] players, String[] callings) {
-        Map<String, Integer> playerPosition = new HashMap<>();
-        for(int i = 0; i < players.length; i++) {
-            playerPosition.put(players[i], i);
-        }
-
-        for(String called : callings) {
-            int currentPosition = playerPosition.get(called);
-
-            if(currentPosition > 0) {
-                int newPosition = currentPosition - 1;
-
-                String swappedPlayer = players[newPosition];
-                players[newPosition] = called;
-                players[currentPosition] = swappedPlayer;
-
-                playerPosition.put(called, newPosition);
-                playerPosition.put(swappedPlayer, currentPosition);
-            }
-        }
-
-        return players;
-    }
-}
-```
-
 ## 코드 설명
 
 ```jsx
@@ -107,3 +77,8 @@ class Solution {
     }
 }
 ```
+
+## 알고리즘 내용
+
+- HashMap을 통해 O(1) 시간 복잡도로 위치를 관리하므로, callings 배열이 매우 길더라도 효율적으로 처리할 수 있습니다.
+- 입력 데이터 크기가 크므로, 반복문과 스왑 작업이 누적될 때의 성능을 고려해 최적화를 유도합니다.
